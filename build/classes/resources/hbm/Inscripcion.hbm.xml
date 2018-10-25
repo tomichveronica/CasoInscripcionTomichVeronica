@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="model.Inscripcion" table="inscripcion">
+      <id name="id" column="id">
+          <generator class="increment"/>
+      </id>
+      <property name="fecha" />
+      <property name="condicional" />
+      
+      <many-to-one name="curso" class="model.Curso" column="cursoId" lazy="false" />
+      <many-to-one name="estudiante" class="model.Estudiante" column="estudianteId" lazy="false" />
+      
+  </class>
+</hibernate-mapping>
