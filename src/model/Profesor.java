@@ -18,7 +18,7 @@ public class Profesor extends Persona {
     public Profesor() {
     }
     
-    public Profesor(String nombre, String apellido, String direccion, int telefono, Date fechaNac, String descripcion) {
+    public Profesor(String nombre, String apellido, String direccion, long telefono, Date fechaNac, String descripcion) {
         super(nombre, apellido, direccion, telefono, fechaNac);
         this.descripcion = descripcion;
     }

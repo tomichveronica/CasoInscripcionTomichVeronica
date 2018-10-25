@@ -16,13 +16,13 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String direccion;
-    private int telefono;
+    private long telefono;
     private Date fechaNac;
 
     public Persona() {
     }
 
-    public Persona(String nombre, String apellido, String direccion, int telefono, Date fechaNac) {
+    public Persona(String nombre, String apellido, String direccion, long telefono, Date fechaNac) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
@@ -46,11 +46,11 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 

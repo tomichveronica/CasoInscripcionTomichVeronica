@@ -192,10 +192,6 @@
           </Properties>
         </Component>
         <Component class="org.jdesktop.swingx.JXDatePicker" name="txtFechaNac">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaNacActionPerformed"/>
-            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="txtFechaNacPropertyChange"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTutor">
           <Properties>

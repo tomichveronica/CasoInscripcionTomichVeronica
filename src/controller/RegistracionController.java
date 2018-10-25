@@ -50,4 +50,9 @@ public class RegistracionController {
         this.inscripcionController.actualizarEstudianteInscripcion(estudiante.getEmail());
     }
 
+    public boolean emailEnUso(String email) {
+        Estudiante estudiante = this.inscripcionController.buscarEstudiante(email);
+        return estudiante != null;
+    }
+
 }

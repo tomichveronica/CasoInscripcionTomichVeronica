@@ -8,8 +8,7 @@ package model;
 import java.util.Date;
 
 /**
- *
- * @author tomichveronica
+ * * @author tomichveronica
  */
 public class Estudiante extends Persona {
     private String email;
@@ -18,7 +17,7 @@ public class Estudiante extends Persona {
     public Estudiante() {
     }
     
-    public Estudiante(String nombre, String apellido, String direccion, int telefono, Date fechaNac, String email, String tutor) {
+    public Estudiante(String nombre, String apellido, String direccion, long telefono, Date fechaNac, String email, String tutor) {
         super(nombre, apellido, direccion, telefono, fechaNac);
         this.email = email;
         this.tutor = tutor;
