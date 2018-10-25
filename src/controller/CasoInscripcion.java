@@ -16,6 +16,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
  */
 public class CasoInscripcion {
 
+    private static InscripcionController inscripcionController;
+    
     /**
      * @param args the command line arguments
      */
@@ -39,7 +41,7 @@ public class CasoInscripcion {
             throw e;
 	}      
         
-        new InscripcionController(sessionFactory).run();
+        inscripcionController = new InscripcionController(sessionFactory);
+        inscripcionController.run();
     }
-    
 }
