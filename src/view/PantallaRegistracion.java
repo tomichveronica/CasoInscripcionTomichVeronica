@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.text.NumberFormat;
 import java.util.Calendar;
 import static java.util.Calendar.DATE;
 import static java.util.Calendar.MONTH;
@@ -17,7 +18,9 @@ import static java.util.Calendar.YEAR;
 import java.util.Date;
 import java.util.Locale;
 import java.util.regex.Pattern;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
+import javax.swing.text.NumberFormatter;
 
 /**
  *
@@ -94,6 +97,8 @@ public class PantallaRegistracion extends javax.swing.JFrame {
         lblDireccion.setText("Direccion:");
 
         lblTelefono.setText("Telefono:");
+
+        txtTelefono.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
         lblEmail.setText("E-Mail:");
 
