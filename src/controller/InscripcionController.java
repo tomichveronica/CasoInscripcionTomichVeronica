@@ -41,7 +41,7 @@ public class InscripcionController {
         this.tematicaDao = new TematicaDaoImpl(sessionFactory);
         this.cursoDao = new CursoDaoImpl(sessionFactory);
         this.inscripcionDao = new InscripcionDaoImpl(sessionFactory);
-        
+
         this.registracionController = new RegistracionController(sessionFactory, this);
     }
 
@@ -78,21 +78,30 @@ public class InscripcionController {
         } else if (inscripcionDao.getCantidadPorEstudiante(estudiante) >= 3) {
             this.pantallaInscripcion.mostrarMensaje("El ya se encuentra inscripto a 3 cursos");
         } else if (inscripcionDao.getCantidadPorCurso(curso) >= curso.getCupo()) {
+
             if (this.pantallaInscripcion.mostrarMensajeConfirmacionGuardadoCondicional()) {
                 Inscripcion inscripcion = new Inscripcion(curso, estudiante, true);
                 this.inscripcionDao.guardarInscripcion(inscripcion);
+
+                String mensaje = "Estimado " + estudiante.getNombre() + " " + estudiante.getApellido() + ", ";
+                mensaje += "Ud. se encuentra inscripto al curso con el numero de inscripcion " + inscripcion.getId();
+
+                this.pantallaInscripcion.mostrarMensaje(mensaje);
             }
-            
-            this.pantallaInscripcion.mostrarMensaje("El alumnos ha sido inscripto en forma condicional al curso" + curso.getNombre());
+
         } else {
 
             if (this.pantallaInscripcion.mostrarMensajeConfirmacionGuardado()) {
                 Inscripcion inscripcion = new Inscripcion(curso, estudiante, false);
 
                 this.inscripcionDao.guardarInscripcion(inscripcion);
+
+                String mensaje = "Estimado " + estudiante.getNombre() + " " + estudiante.getApellido() + ", ";
+                mensaje += "Ud. se encuentra inscripto al curso con el numero de inscripcion " + inscripcion.getId();
+
+                this.pantallaInscripcion.mostrarMensaje(mensaje);
             }
             
-            this.pantallaInscripcion.mostrarMensaje("El alumnos ha sido inscripto al curso" + curso.getNombre());
         }
 
     }
