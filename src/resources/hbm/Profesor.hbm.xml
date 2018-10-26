@@ -8,5 +8,6 @@
       <property name="nombre" />
       <property name="apellido" />
       <property name="descripcion" />
+      <property name="direccion" />
   </class>
 </hibernate-mapping>

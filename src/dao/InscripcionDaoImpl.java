@@ -19,23 +19,23 @@ import org.hibernate.SessionFactory;
  *
  * @author tomichveronica
  */
-public class InscripcionDaoImpl implements InscripcionDao{
-    
+public class InscripcionDaoImpl implements InscripcionDao {
+
     private final SessionFactory sessionFactory;
-    
+
     public InscripcionDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
-    }    
+    }
 
     @Override
-    public void guardarInscripcion(Inscripcion inscripcion) {        
+    public void guardarInscripcion(Inscripcion inscripcion) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.save(inscripcion);
         session.getTransaction().commit();
-        session.close();     
+        session.close();
     }
-    
+
     @Override
     public Boolean estaInscripto(Estudiante estudiante, Curso curso) {
         Session session = sessionFactory.openSession();
@@ -44,14 +44,17 @@ public class InscripcionDaoImpl implements InscripcionDao{
         CriteriaQuery<Long> query = builder.createQuery(Long.class);
         Root<Inscripcion> root = query.from(Inscripcion.class);
         query.select(builder.count(root));
-        query.where(builder.equal(root.get("estudiante"), estudiante));
-        query.where(builder.equal(root.get("curso"), curso));
-        
+        query.where(
+                builder.and(
+                        builder.equal(root.get("estudiante"), estudiante),
+                        builder.equal(root.get("curso"), curso)
+                )
+        );
+
         Long cantidadInscripciones = session.createQuery(query).uniqueResult();
 
-        return cantidadInscripciones > 0;    
-    }    
-    
+        return cantidadInscripciones > 0;
+    }
 
     @Override
     public Long getCantidadPorEstudiante(Estudiante estudiante) {
@@ -65,7 +68,7 @@ public class InscripcionDaoImpl implements InscripcionDao{
 
         Long cantidadInscripciones = session.createQuery(query).uniqueResult();
 
-        return cantidadInscripciones;    
+        return cantidadInscripciones;
     }
 
     @Override
@@ -80,7 +83,7 @@ public class InscripcionDaoImpl implements InscripcionDao{
 
         Long cantidadInscripciones = session.createQuery(query).uniqueResult();
 
-        return cantidadInscripciones;   
+        return cantidadInscripciones;
     }
-    
+
 }

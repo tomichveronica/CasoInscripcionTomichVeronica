@@ -229,7 +229,7 @@ public class PantallaRegistracion extends javax.swing.JFrame {
                     this.txtNombre.getText(),
                     this.txtApellido.getText(),
                     this.txtDireccion.getText(),
-                    Integer.parseInt(this.txtTelefono.getText()),
+                    Long.parseLong(this.txtTelefono.getText()),
                     this.txtEmail.getText(),
                     this.txtFechaNac.getDate(),
                     this.txtTutor.getText()

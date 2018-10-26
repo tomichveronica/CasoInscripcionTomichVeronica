@@ -7,6 +7,9 @@
       </id>
       <property name="nombre" />
       <property name="apellido" />
+      <property name="direccion" />
+      <property name="telefono" />
+      <property name="fechaNac" />
       <property name="email" />
       <property name="tutor" />
   </class>

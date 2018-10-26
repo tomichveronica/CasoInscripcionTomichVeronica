@@ -42,7 +42,7 @@ public class RegistracionController {
         this.pantallaRegistracion.setVisible(false);
     }
 
-    public void guardarEstudiante(String nombre, String apellido, String direccion, int telefono, String email, Date fechaNac, String tutor) {
+    public void guardarEstudiante(String nombre, String apellido, String direccion, long telefono, String email, Date fechaNac, String tutor) {
         Estudiante estudiante = new Estudiante(nombre, apellido, direccion, telefono, fechaNac, email, tutor);
         
         this.estudianteDao.guardarEstudiante(estudiante);
